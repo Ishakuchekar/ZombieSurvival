@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c0d0c">
+  <meta name="description" content="A cinematic, turn-based survival horror game. Hold the line for three nights.">
+  <title>Last Stand — Zombie Survival</title>
+  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/shooter.css">
+  <script type="module" src="./js/app.js"></script>
+</head>
+<body>
+  <div class="atmosphere" aria-hidden="true"><div class="fog fog-one"></div><div class="fog fog-two"></div><div class="grain"></div></div>
+  <main id="app" class="app-shell" aria-live="polite"></main>
+  <div id="toast-region" class="toast-region" role="status" aria-live="polite"></div>
+  <dialog id="confirm-dialog" class="confirm-dialog">
+    <form method="dialog">
+      <p class="eyebrow">CONFIRM ACTION</p>
+      <h2 id="confirm-title">Start a new run?</h2>
+      <p id="confirm-copy" class="muted">Your current run will be replaced.</p>
+      <div class="button-row"><button class="button button-quiet" value="cancel">Cancel</button><button class="button button-danger" value="confirm">Continue</button></div>
+    </form>
+  </dialog>
+</body>
+</html>

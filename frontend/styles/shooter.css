@@ -1,0 +1,250 @@
+.shooter-screen {
+  height: 100svh;
+  min-height: 520px;
+  display: grid;
+  grid-template-rows: 54px minmax(0, 1fr) 30px;
+  overflow: hidden;
+  background: #0c0e0d;
+}
+.shooter-header {
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  border-bottom: 1px solid var(--line);
+  background: #111312;
+}
+.shooter-header .wordmark { font-size: .82rem; }
+.shooter-objective {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #9d9d93;
+  font-size: .55rem;
+  letter-spacing: .13em;
+}
+.shooter-objective b { color: #d0ccc0; }
+.shooter-objective > i { width: 1px; height: 13px; margin: 0 4px; background: var(--line); }
+.shooter-objective .danger-dot { background: var(--red-bright); }
+.shooter-menu { display: flex; align-items: center; gap: 5px; }
+.shooter-world { position: relative; min-height: 0; overflow: hidden; background: #20231f; }
+.action-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  touch-action: none;
+  cursor: crosshair;
+}
+.shooter-top-hud {
+  position: absolute;
+  top: 17px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.combat-chip {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 10px;
+  border: 1px solid rgba(231,226,213,.15);
+  background: rgba(12,14,13,.69);
+  color: #d3cfc2;
+  font-size: .55rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  backdrop-filter: blur(4px);
+}
+.combat-chip > span, .combat-chip > svg { color: #d18568; }
+.score-chip > svg { color: #d4b17c; }
+.combat-chip i { width: 1px; height: 12px; margin: 0 3px; background: var(--line); }
+.shooter-status {
+  position: absolute;
+  bottom: 65px;
+  left: 20px;
+  display: flex;
+  align-items: end;
+  gap: 17px;
+  min-width: 310px;
+  padding: 13px;
+  border: 1px solid rgba(231,226,213,.14);
+  background: rgba(13,15,14,.79);
+  backdrop-filter: blur(8px);
+  transition: border-color .16s;
+}
+.shooter-damaged { border-color: rgba(221,81,61,.8); }
+.shooter-vitals { width: 155px; }
+.vital-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  color: #aaa99e;
+  font-size: .49rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+.vital-row > span { display: flex; align-items: center; gap: 5px; }
+.vital-row > span svg { color: #c37159; }
+.vital-row > b { color: #d9d6cc; font-size: .6rem; }
+.vital-row > b small { color: #87867c; font-weight: 400; }
+.vital-track { height: 4px; margin-bottom: 10px; background: #353730; }
+.vital-track > i {
+  display: block;
+  width: var(--vital);
+  height: 100%;
+  background: var(--vital-color);
+  transition: width .12s;
+}
+.stamina-row > span svg { color: #c5a371; }
+.stamina-track > i { background: #c5a371; }
+.weapon-readout { min-width: 130px; padding-left: 15px; border-left: 1px solid var(--line); }
+.weapon-readout > .eyebrow { display: block; margin-bottom: 2px; color: #bbae94; font-size: .46rem; }
+.ammo-readout { display: flex; align-items: baseline; gap: 5px; }
+.ammo-readout > b { font-family: var(--display); font-size: 2.15rem; line-height: 1; }
+.ammo-readout > i { color: #6e6e65; font-style: normal; }
+.ammo-readout > span { color: #aaa99c; font-family: var(--display); font-size: 1.2rem; }
+.ammo-readout > small { margin-left: 3px; color: #85847b; font-size: .43rem; letter-spacing: .1em; }
+.weapon-slots { display: flex; gap: 8px; margin-top: 6px; }
+.weapon-slots span { color: #73736b; font-size: .41rem; letter-spacing: .06em; }
+.weapon-slots .weapon-current { color: #d0b689; }
+.weapon-slots .weapon-locked { opacity: .55; text-decoration: line-through; }
+.shooter-controls {
+  position: absolute;
+  right: 20px;
+  bottom: 65px;
+  display: grid;
+  justify-items: end;
+  gap: 9px;
+}
+.control-hints {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 10px;
+  border: 1px solid rgba(231,226,213,.12);
+  background: rgba(13,15,14,.75);
+  color: #aaa99c;
+  font-size: .45rem;
+  letter-spacing: .06em;
+}
+.control-hints > span { display: flex; align-items: center; gap: 3px; }
+.control-hints > i { width: 1px; height: 11px; background: rgba(231,226,213,.18); }
+.control-hints b { color: #d5bd8f; }
+.shooter-screen kbd { padding: 2px 4px; border: 1px solid rgba(231,226,213,.23); border-radius: 2px; color: #e0d3b8; font: 600 .48rem var(--body); }
+.quick-actions { display: flex; gap: 6px; }
+.quick-button {
+  min-height: 32px;
+  padding: 0 10px;
+  border: 1px solid rgba(231,226,213,.18);
+  background: rgba(13,15,14,.83);
+  color: #d3cfc2;
+  font-size: .5rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  transition: border-color .16s, background .16s;
+}
+.quick-button:hover:not(:disabled) { border-color: #ba7656; background: #24231e; }
+.quick-button:disabled { opacity: .4; cursor: not-allowed; }
+.quick-fire { border-color: #a64c3a; background: #923d32; color: white; }
+.quick-button kbd { margin-left: 3px; }
+.wave-intermission {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: min(480px, calc(100% - 36px));
+  padding: 27px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(231,226,213,.2);
+  background: rgba(12,14,13,.88);
+  box-shadow: 0 22px 75px #0008;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+.wave-intermission .eyebrow { margin-bottom: 9px; }
+.wave-intermission h1 { margin: 0 0 9px; font-family: var(--display); font-size: 3rem; line-height: 1; font-weight: 900; letter-spacing: .04em; }
+.wave-intermission > p:not(.eyebrow) { color: #b7b3a7; font-size: .73rem; line-height: 1.55; }
+.wave-intermission > p span { display: block; margin-top: 5px; color: #b6a171; font-size: .53rem; letter-spacing: .11em; }
+.wave-intermission .button { min-height: 40px; margin-top: 8px; font-size: .58rem; }
+.wave-intermission > small { display: block; margin-top: 12px; color: #73756e; font-size: .47rem; letter-spacing: .11em; }
+.interaction-hint {
+  position: absolute;
+  top: 54px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 9px;
+  border: 1px solid rgba(231,226,213,.14);
+  background: rgba(13,15,14,.74);
+  color: #d1c9b3;
+  font-size: .49rem;
+  letter-spacing: .09em;
+  pointer-events: none;
+}
+.interaction-hint kbd { margin-right: 5px; }
+.shooter-log { position: absolute; top: 57px; left: 20px; display: grid; gap: 4px; max-width: min(360px, 48vw); pointer-events: none; }
+.shooter-log p { margin: 0; padding: 4px 7px; background: rgba(10,12,11,.45); color: #cfccbf; font-size: .55rem; line-height: 1.4; }
+.shooter-log .log-danger { color: #e29580; }
+.shooter-log .log-success, .shooter-log .log-loot { color: #bdc99c; }
+.shooter-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  border-top: 1px solid var(--line);
+  background: #111312;
+  color: #77786f;
+  font-size: .47rem;
+  letter-spacing: .1em;
+}
+.shooter-footer > span { display: flex; align-items: center; gap: 7px; }
+.shooter-footer svg { color: #b38e67; }
+.shooter-footer b { color: #d1b687; }
+.shooter-footer i { width: 1px; height: 11px; margin: 0 5px; background: var(--line); }
+.mission-page-list { margin: 22px 0 27px; }
+.shooter-screen .overlay-backdrop { z-index: 22; }
+
+@media (max-width: 700px) {
+  .shooter-screen { height: 100svh; min-height: 540px; grid-template-rows: 49px minmax(0, 1fr) 27px; }
+  .shooter-header { padding: 0 10px; }
+  .shooter-header .wordmark { gap: 5px; font-size: .66rem; }
+  .shooter-objective { gap: 5px; font-size: .42rem; letter-spacing: .07em; }
+  .shooter-objective > i { margin: 0 1px; }
+  .shooter-menu { gap: 0; }
+  .shooter-menu .icon-button { width: 29px; }
+  .shooter-top-hud { top: 9px; left: 9px; right: 9px; }
+  .combat-chip { gap: 5px; padding: 6px; font-size: .44rem; }
+  .shooter-status { bottom: 96px; left: 8px; width: min(295px, calc(100% - 16px)); min-width: 0; gap: 11px; padding: 9px; }
+  .shooter-vitals { width: 130px; }
+  .weapon-readout { min-width: 115px; padding-left: 11px; }
+  .shooter-controls { right: 8px; bottom: 8px; left: 8px; display: flex; flex-direction: column-reverse; align-items: stretch; gap: 6px; }
+  .control-hints { justify-content: center; gap: 5px; overflow: hidden; padding: 6px 4px; font-size: .39rem; white-space: nowrap; }
+  .control-hints > span { gap: 2px; }
+  .control-hints kbd { padding: 1px 3px; font-size: .4rem; }
+  .quick-actions { justify-content: center; }
+  .quick-button { flex: 1; padding: 0 5px; font-size: .44rem; }
+  .shooter-footer { padding: 0 8px; font-size: .41rem; }
+  .shooter-footer > span { gap: 4px; }
+  .shooter-footer > span:last-child { display: none; }
+  .wave-intermission { padding: 22px 15px; }
+  .wave-intermission h1 { font-size: 2.4rem; }
+  .shooter-log { top: 46px; left: 8px; max-width: 53vw; }
+  .shooter-log p { font-size: .47rem; }
+  .interaction-hint { top: 93px; font-size: .43rem; }
+  .item-card { grid-template-columns: 31px 1fr 43px; gap: 8px; }
+  .item-card .item-action { grid-column: 2 / 4; width: 100%; }
+}
+@media (max-width: 390px) {
+  .shooter-objective { font-size: .37rem; }
+  .shooter-objective .live-dot { display: none; }
+  .control-hints > span:nth-of-type(n+4), .control-hints > i:nth-of-type(n+3) { display: none; }
+  .quick-button { font-size: .4rem; }
+  .shooter-status { bottom: 89px; }
+  .shooter-footer { font-size: .38rem; }
+}

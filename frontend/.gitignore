@@ -1,0 +1,14 @@
+
+# Compiled programs
+*.exe
+
+# Local game saves
+zombie_save.txt
+
+# Build files
+build/
+out/
+
+# Editor and OS files
+.vscode/
+.DS_Store
